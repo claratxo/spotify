@@ -1,2 +1,2 @@
-# spotify-do-amor
+# spotify
 Uma retrospectiva do nosso amor 💚
