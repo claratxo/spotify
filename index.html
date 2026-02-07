@@ -8,38 +8,39 @@
 </head>
 <body>
 
-<!-- TELA 1 -->
+<!-- TELA DE ENTRADA -->
 <div id="intro" class="intro">
   <button class="play-btn" onclick="entrar()">▶</button>
   <p>clique aqui</p>
 </div>
 
-<!-- TELA 2 -->
+<!-- INTERFACE SPOTIFY -->
 <div id="spotify" class="spotify hidden">
 
-  <!-- PLAYER -->
   <div class="player-card">
-  <h3 class="amor-texto">Você é o amor da minha vida ❤</h3>
-  <img src="foto.jpeg" alt="Capa">
-  <small>Para o meu grande amor</small>
-  <h2>About You</h2>
-  <p>The 1975</p>
+    <h3 class="amor-texto">Você é o amor da minha vida ❤</h3>
+
+    <img src="foto.jpeg" alt="Capa do amor" class="cover">
+
+    <div class="music-info">
+      <small>Para o meu grande amor</small>
+      <h2>About You</h2>
+      <p>The 1975</p>
+    </div>
 
     <!-- Spotify Embed -->
-    <iframe 
-      style="border-radius:12px" 
+    <iframe
       src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9"
-      width="100%" 
-      height="80" 
-      frameborder="0" 
+      width="100%"
+      height="80"
+      frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
   </div>
 
-  <!-- CONTADOR -->
+  <!-- TEMPO JUNTOS -->
   <div class="time-card">
-    <h3>Clara e Hélio</h3>
-    <p>Juntos desde:</p>
+    <p class="since">Juntos desde:</p>
 
     <div class="grid">
       <div><span id="anos"></span><small>Anos</small></div>
@@ -56,6 +57,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
