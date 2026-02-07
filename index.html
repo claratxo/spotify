@@ -8,13 +8,10 @@
 </head>
 <body>
 
-<!-- INTRO -->
+<!-- INTRO SIMPLES -->
 <div id="intro" class="intro">
-  <div class="wrapped">
-    <h1>2025</h1>
-    <p>Meu Spotify Wrapped foi você ❤</p>
-    <button class="play-btn" id="start-btn" type="button">▶</button>
-  </div>
+  <button class="play-btn" id="start-btn" type="button">▶</button>
+  <p class="clique">clique aqui</p>
 </div>
 
 <!-- APP SPOTIFY -->
@@ -34,7 +31,7 @@
     <!-- FRASE DA MÚSICA -->
     <p id="lyric" class="lyric"></p>
 
-    <!-- BARRA DE PROGRESSO FAKE -->
+    <!-- BARRA FAKE -->
     <div class="progress">
       <span>0:00</span>
       <div class="bar">
@@ -43,7 +40,6 @@
       <span>5:26</span>
     </div>
 
-    <!-- PLAYER REAL -->
     <iframe
       src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9"
       width="100%"
@@ -66,7 +62,7 @@
     </div>
   </div>
 
-  <!-- BOTÃO FINAL -->
+  <!-- FINAL -->
   <div class="final">
     <button id="final-btn" type="button">Ver o que vem depois ▶</button>
   </div>
@@ -77,8 +73,6 @@
 <div id="final-screen" class="final-screen hidden">
   <p>Se eu tivesse que escolher de novo,<br>ainda seria você.</p>
 </div>
-
-<button class="floating-play">▶</button>
 
 <script src="script.js"></script>
 </body>
