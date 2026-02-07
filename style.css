@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 .play-btn {
   font-size: 60px;
   background: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -31,7 +31,7 @@ body {
 
 .intro p {
   margin-top: 20px;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* SPOTIFY */
@@ -40,36 +40,60 @@ body {
 }
 
 .spotify {
+  min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(#8b3f1f, #000);
+  background: linear-gradient(180deg, #6b2f1a 0%, #000 65%);
 }
 
 /* PLAYER */
 .player-card {
-  background: #181818;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
+  max-width: 420px;
+  margin: auto;
 }
 
-.player-card img {
+.amor-texto {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+/* CAPA */
+.cover {
   width: 100%;
-  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  margin-bottom: 20px;
 }
 
-.player-card h2 {
-  margin: 10px 0 0;
+/* INFO MÚSICA */
+.music-info {
+  text-align: left;
 }
 
-.player-card p, small {
-  opacity: 0.8;
+.music-info h2 {
+  margin: 5px 0 0;
+  font-size: 22px;
 }
 
-/* CONTADOR */
+.music-info p {
+  margin: 0;
+  color: #b3b3b3;
+}
+
+/* TEMPO */
 .time-card {
-  background: #181818;
-  border-radius: 20px;
+  max-width: 420px;
+  margin: 40px auto 0;
+  background: #121212;
+  border-radius: 16px;
   padding: 20px;
+}
+
+.since {
+  margin: 0;
+  opacity: 0.8;
 }
 
 .grid {
@@ -80,7 +104,7 @@ body {
 }
 
 .grid div {
-  background: #222;
+  background: #1e1e1e;
   border-radius: 12px;
   padding: 10px;
   text-align: center;
@@ -91,9 +115,6 @@ body {
   font-weight: bold;
 }
 
-.amor-texto {
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: normal;
-  color: #fff;
+.grid small {
+  color: #b3b3b3;
 }
