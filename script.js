@@ -3,6 +3,7 @@ function entrar() {
   document.getElementById("spotify").classList.remove("hidden");
 }
 
+/* TEMPO JUNTOS */
 const inicio = new Date("2025-11-08T17:00:00");
 
 function atualizarTempo() {
@@ -16,13 +17,28 @@ function atualizarTempo() {
   const meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30)) % 12;
   const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 
-  document.getElementById("anos").innerText = anos;
-  document.getElementById("meses").innerText = meses;
-  document.getElementById("dias").innerText = dias;
-  document.getElementById("horas").innerText = horas;
-  document.getElementById("minutos").innerText = minutos;
-  document.getElementById("segundos").innerText = segundos;
+  anosEl.innerText = anos;
+  mesesEl.innerText = meses;
+  diasEl.innerText = dias;
+  horasEl.innerText = horas;
+  minutosEl.innerText = minutos;
+  segundosEl.innerText = segundos;
 }
+
+const anosEl = document.getElementById("anos");
+const mesesEl = document.getElementById("meses");
+const diasEl = document.getElementById("dias");
+const horasEl = document.getElementById("horas");
+const minutosEl = document.getElementById("minutos");
+const segundosEl = document.getElementById("segundos");
 
 setInterval(atualizarTempo, 1000);
 atualizarTempo();
+
+/* BARRA FAKE */
+let progress = 0;
+setInterval(() => {
+  progress += 0.3;
+  if (progress > 100) progress = 0;
+  document.getElementById("fill").style.width = progress + "%";
+}, 1000);
