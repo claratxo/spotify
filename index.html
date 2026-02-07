@@ -17,13 +17,13 @@
   </div>
 </div>
 
-<!-- APP -->
+<!-- APP SPOTIFY -->
 <div id="spotify" class="spotify hidden">
 
   <div class="player-card">
     <h3 class="amor-texto">Você é o amor da minha vida ❤</h3>
 
-    <img src="foto.jpeg" class="cover">
+    <img src="foto.jpeg" class="cover" alt="Capa">
 
     <div class="music-info">
       <small>Para o meu grande amor</small>
@@ -34,7 +34,7 @@
     <!-- FRASE DA MÚSICA -->
     <p id="lyric" class="lyric"></p>
 
-    <!-- BARRA FAKE -->
+    <!-- BARRA DE PROGRESSO FAKE -->
     <div class="progress">
       <span>0:00</span>
       <div class="bar">
@@ -43,6 +43,7 @@
       <span>5:26</span>
     </div>
 
+    <!-- PLAYER REAL -->
     <iframe
       src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9"
       width="100%"
@@ -52,22 +53,22 @@
     </iframe>
   </div>
 
-  <!-- TEMPO -->
+  <!-- CONTADOR -->
   <div class="time-card">
     <p class="since">Juntos desde:</p>
     <div class="grid">
-      <div><span id="anos"></span><small>Anos</small></div>
-      <div><span id="meses"></span><small>Meses</small></div>
-      <div><span id="dias"></span><small>Dias</small></div>
-      <div><span id="horas"></span><small>Horas</small></div>
-      <div><span id="minutos"></span><small>Minutos</small></div>
-      <div><span id="segundos"></span><small>Segundos</small></div>
+      <div><span id="anos">0</span><small>Anos</small></div>
+      <div><span id="meses">0</span><small>Meses</small></div>
+      <div><span id="dias">0</span><small>Dias</small></div>
+      <div><span id="horas">0</span><small>Horas</small></div>
+      <div><span id="minutos">0</span><small>Minutos</small></div>
+      <div><span id="segundos">0</span><small>Segundos</small></div>
     </div>
   </div>
 
-  <!-- FINAL -->
+  <!-- BOTÃO FINAL -->
   <div class="final">
-    <button onclick="mostrarFinal()">Ver o que vem depois ▶</button>
+    <button id="final-btn" type="button">Ver o que vem depois ▶</button>
   </div>
 
 </div>
@@ -82,4 +83,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
