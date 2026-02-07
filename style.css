@@ -5,43 +5,45 @@
 
 body {
   margin: 0;
-  background: black;
+  background: #000;
   color: white;
-}
-
-/* ESCONDER */
-.hidden {
-  display: none;
 }
 
 /* INTRO */
 .intro {
   height: 100vh;
-  background: black;
+  background: linear-gradient(180deg, #1db954, #000);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.wrapped {
+  text-align: center;
+  animation: fadeUp 1.2s ease;
+}
+
+.wrapped h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
 .play-btn {
-  width: 200px;
-  height: 60px;
-  border-radius: 10px;
-  border: 2px solid white;
+  font-size: 40px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: none;
   background: black;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
+  color: #1db954;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-.play-btn:hover, .play-btn:active {
-  background: rgba(255, 255, 255, 0.1);
+/* APP */
+.hidden {
+  display: none;
 }
 
-/* SPOTIFY */
 .spotify {
   min-height: 100vh;
   padding: 20px;
@@ -87,6 +89,7 @@ body {
   height: 100%;
   width: 0%;
   background: #1db954;
+  transition: width 1s linear;
 }
 
 /* TEMPO */
@@ -122,6 +125,7 @@ body {
   border: none;
   color: #1db954;
   font-size: 16px;
+  cursor: pointer;
 }
 
 /* TELA FINAL */
@@ -135,4 +139,36 @@ body {
   text-align: center;
   font-size: 22px;
   padding: 20px;
+}
+
+/* PLAY FLUTUANTE */
+.floating-play {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #1db954;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.floating-play:hover {
+  transform: scale(1.1);
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
