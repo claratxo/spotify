@@ -3,21 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
   const finalBtn = document.getElementById("final-btn");
 
-  if (startBtn) {
-    startBtn.addEventListener("click", entrar);
-  }
+  startBtn.addEventListener("click", () => {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("spotify").classList.remove("hidden");
+  });
 
-  if (finalBtn) {
-    finalBtn.addEventListener("click", mostrarFinal);
-  }
+  finalBtn.addEventListener("click", () => {
+    document.getElementById("final-screen").classList.remove("hidden");
+  });
 
 });
-
-/* ENTRAR */
-function entrar() {
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("spotify").classList.remove("hidden");
-}
 
 /* CONTADOR */
 const inicio = new Date("2025-11-08T17:00:00");
@@ -63,10 +58,4 @@ setInterval(() => {
     el.style.opacity = 1;
     i = (i + 1) % lyrics.length;
   }, 1000);
-
 }, 5000);
-
-/* FINAL */
-function mostrarFinal() {
-  document.getElementById("final-screen").classList.remove("hidden");
-}
