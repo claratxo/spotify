@@ -1,30 +1,17 @@
-// Log para confirmar que o script carregou
-console.log("Script carregado!");
-
 // Garante que a tela final esteja escondida ao carregar
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM carregado, escondendo tela final...");
   const finalScreen = document.getElementById("final-screen");
   if (finalScreen) {
     finalScreen.classList.add("hidden");
-    console.log("Tela final escondida.");
-  } else {
-    console.error("Erro: Elemento 'final-screen' não encontrado.");
   }
 });
 
 function entrar() {
-  console.log("Função entrar() chamada!"); // Log para ver se o clique ativa a função
-
   const intro = document.getElementById("intro");
   const spotify = document.getElementById("spotify");
-
   if (intro && spotify) {
-    console.log("Escondendo intro e mostrando spotify...");
     intro.style.display = "none";
     spotify.classList.remove("hidden");
-  } else {
-    console.error("Erro: Elementos 'intro' ou 'spotify' não encontrados. Verifique os IDs no HTML.");
   }
 }
 
@@ -36,7 +23,6 @@ function atualizarTempo() {
   let diff = agora - inicio;
 
   if (diff < 0) {
-    console.log("Data futura, mostrando 0.");
     document.getElementById("anos").innerText = 0;
     document.getElementById("meses").innerText = 0;
     document.getElementById("dias").innerText = 0;
@@ -99,17 +85,13 @@ setInterval(() => {
 
 /* FINAL */
 function mostrarFinal() {
-  console.log("Função mostrarFinal() chamada!");
   const finalScreen = document.getElementById("final-screen");
   if (finalScreen) {
     finalScreen.classList.remove("hidden");
-  } else {
-    console.error("Erro: Elemento 'final-screen' não encontrado.");
   }
 }
 
 /* REPLAY (botão flutuante) */
 function replay() {
-  console.log("Reiniciando página...");
   location.reload();
 }
