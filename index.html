@@ -8,19 +8,19 @@
 </head>
 <body>
 
-<!-- INTRO SIMPLES -->
+<!-- INTRO -->
 <div id="intro" class="intro">
-  <button class="play-btn" id="start-btn" type="button">▶</button>
+  <button id="start-btn" class="play-btn" type="button">▶</button>
   <p class="clique">clique aqui</p>
 </div>
 
-<!-- APP SPOTIFY -->
+<!-- APP -->
 <div id="spotify" class="spotify hidden">
 
   <div class="player-card">
     <h3 class="amor-texto">Você é o amor da minha vida ❤</h3>
 
-    <img src="foto.jpeg" class="cover" alt="Capa">
+    <img src="foto.jpeg" alt="Capa" class="cover">
 
     <div class="music-info">
       <small>Para o meu grande amor</small>
@@ -28,14 +28,12 @@
       <p>The 1975</p>
     </div>
 
-    <!-- FRASE DA MÚSICA -->
     <p id="lyric" class="lyric"></p>
 
-    <!-- BARRA FAKE -->
     <div class="progress">
       <span>0:00</span>
       <div class="bar">
-        <div class="fill" id="fill"></div>
+        <div id="fill" class="fill"></div>
       </div>
       <span>5:26</span>
     </div>
@@ -49,7 +47,6 @@
     </iframe>
   </div>
 
-  <!-- CONTADOR -->
   <div class="time-card">
     <p class="since">Juntos desde:</p>
     <div class="grid">
@@ -62,14 +59,13 @@
     </div>
   </div>
 
-  <!-- FINAL -->
   <div class="final">
     <button id="final-btn" type="button">Ver o que vem depois ▶</button>
   </div>
 
 </div>
 
-<!-- TELA FINAL -->
+<!-- TELA FINAL (COMEÇA ESCONDIDA!) -->
 <div id="final-screen" class="final-screen hidden">
   <p>Se eu tivesse que escolher de novo,<br>ainda seria você.</p>
 </div>
