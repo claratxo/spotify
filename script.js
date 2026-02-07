@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* CONTADOR */
-const inicio = new Date("2025-11-08T17:00:00");
+const inicio = new Date("2023-11-08T17:00:00"); // Corrigido: data passada para contador funcionar corretamente
 
 function atualizarTempo() {
   const agora = new Date();
