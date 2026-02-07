@@ -1,32 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-  const startBtn = document.getElementById("start-btn");
-  const finalBtn = document.getElementById("final-btn");
-
-  startBtn.addEventListener("click", () => {
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("spotify").classList.remove("hidden");
-  });
-
-  finalBtn.addEventListener("click", () => {
-    document.getElementById("final-screen").classList.remove("hidden");
-  });
-
-});
+function entrar() {
+  const intro = document.getElementById("intro");
+  const spotify = document.getElementById("spotify");
+  if (intro && spotify) {
+    intro.style.display = "none";
+    spotify.classList.remove("hidden");
+  }
+}
 
 /* CONTADOR */
-const inicio = new Date("2023-11-08T17:00:00"); // Corrigido: data passada para contador funcionar corretamente
+const inicio = new Date("2025-11-08T17:00:00"); // Mantido como 2025, mas com verificação para não mostrar negativos
 
 function atualizarTempo() {
   const agora = new Date();
-  const diff = agora - inicio;
+  let diff = agora - inicio;
 
-  document.getElementById("segundos").innerText = Math.floor(diff / 1000) % 60;
-  document.getElementById("minutos").innerText = Math.floor(diff / 60000) % 60;
-  document.getElementById("horas").innerText = Math.floor(diff / 3600000) % 24;
-  document.getElementById("dias").innerText = Math.floor(diff / 86400000) % 30;
-  document.getElementById("meses").innerText = Math.floor(diff / (86400000 * 30)) % 12;
-  document.getElementById("anos").innerText = Math.floor(diff / (86400000 * 365));
+  if (diff < 0) {
+    // Se a data for futura, mostra 0
+    document.getElementById("anos").innerText = 0;
+    document.getElementById("meses").innerText = 0;
+    document.getElementById("dias").innerText = 0;
+    document.getElementById("horas").innerText = 0;
+    document.getElementById("minutos").innerText = 0;
+    document.getElementById("segundos").innerText = 0;
+    return;
+  }
+
+  // Cálculo mais preciso
+  const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+  const meses = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+  const dias = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById("anos").innerText = anos;
+  document.getElementById("meses").innerText = meses;
+  document.getElementById("dias").innerText = dias;
+  document.getElementById("horas").innerText = horas;
+  document.getElementById("minutos").innerText = minutos;
+  document.getElementById("segundos").innerText = segundos;
 }
 
 setInterval(atualizarTempo, 1000);
@@ -34,10 +46,14 @@ atualizarTempo();
 
 /* BARRA FAKE */
 let progress = 0;
-setInterval(() => {
+const progressInterval = setInterval(() => {
   progress += 0.3;
-  if (progress > 100) progress = 0;
-  document.getElementById("fill").style.width = progress + "%";
+  if (progress >= 100) {
+    progress = 100;
+    clearInterval(progressInterval); // Para quando chega em 100%
+  }
+  const fill = document.getElementById("fill");
+  if (fill) fill.style.width = progress + "%";
 }, 1000);
 
 /* LETRAS */
@@ -51,11 +67,25 @@ const lyrics = [
 let i = 0;
 setInterval(() => {
   const el = document.getElementById("lyric");
-  el.style.opacity = 0;
-
-  setTimeout(() => {
-    el.innerText = lyrics[i];
-    el.style.opacity = 1;
-    i = (i + 1) % lyrics.length;
-  }, 1000);
+  if (el) {
+    el.style.opacity = 0;
+    setTimeout(() => {
+      el.innerText = lyrics[i];
+      el.style.opacity = 1;
+      i = (i + 1) % lyrics.length;
+    }, 1000);
+  }
 }, 5000);
+
+/* FINAL */
+function mostrarFinal() {
+  const finalScreen = document.getElementById("final-screen");
+  if (finalScreen) {
+    finalScreen.classList.remove("hidden");
+  }
+}
+
+/* REPLAY (botão flutuante) */
+function replay() {
+  location.reload(); // Reinicia a página
+}
