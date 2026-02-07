@@ -1,29 +1,42 @@
+// Log para confirmar que o script carregou
+console.log("Script carregado!");
+
 // Garante que a tela final esteja escondida ao carregar
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM carregado, escondendo tela final...");
   const finalScreen = document.getElementById("final-screen");
   if (finalScreen) {
     finalScreen.classList.add("hidden");
+    console.log("Tela final escondida.");
+  } else {
+    console.error("Erro: Elemento 'final-screen' não encontrado.");
   }
 });
 
 function entrar() {
+  console.log("Função entrar() chamada!"); // Log para ver se o clique ativa a função
+
   const intro = document.getElementById("intro");
   const spotify = document.getElementById("spotify");
+
   if (intro && spotify) {
+    console.log("Escondendo intro e mostrando spotify...");
     intro.style.display = "none";
     spotify.classList.remove("hidden");
+  } else {
+    console.error("Erro: Elementos 'intro' ou 'spotify' não encontrados. Verifique os IDs no HTML.");
   }
 }
 
 /* CONTADOR */
-const inicio = new Date("2025-11-08T17:00:00"); // Mantido como 2025
+const inicio = new Date("2025-11-08T17:00:00");
 
 function atualizarTempo() {
   const agora = new Date();
   let diff = agora - inicio;
 
   if (diff < 0) {
-    // Se a data for futura, mostra 0
+    console.log("Data futura, mostrando 0.");
     document.getElementById("anos").innerText = 0;
     document.getElementById("meses").innerText = 0;
     document.getElementById("dias").innerText = 0;
@@ -33,7 +46,6 @@ function atualizarTempo() {
     return;
   }
 
-  // Cálculo mais preciso
   const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
   const meses = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
   const dias = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
@@ -58,7 +70,7 @@ const progressInterval = setInterval(() => {
   progress += 0.3;
   if (progress >= 100) {
     progress = 100;
-    clearInterval(progressInterval); // Para quando chega em 100%
+    clearInterval(progressInterval);
   }
   const fill = document.getElementById("fill");
   if (fill) fill.style.width = progress + "%";
@@ -87,13 +99,17 @@ setInterval(() => {
 
 /* FINAL */
 function mostrarFinal() {
+  console.log("Função mostrarFinal() chamada!");
   const finalScreen = document.getElementById("final-screen");
   if (finalScreen) {
     finalScreen.classList.remove("hidden");
+  } else {
+    console.error("Erro: Elemento 'final-screen' não encontrado.");
   }
 }
 
 /* REPLAY (botão flutuante) */
 function replay() {
-  location.reload(); // Reinicia a página
+  console.log("Reiniciando página...");
+  location.reload();
 }
