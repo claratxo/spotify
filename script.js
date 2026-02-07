@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  const startBtn = document.getElementById("start-btn");
+  const finalBtn = document.getElementById("final-btn");
+
+  if (startBtn) {
+    startBtn.addEventListener("click", entrar);
+  }
+
+  if (finalBtn) {
+    finalBtn.addEventListener("click", mostrarFinal);
+  }
+
+});
+
+/* ENTRAR NO APP */
 function entrar() {
   document.getElementById("intro").style.display = "none";
   document.getElementById("spotify").classList.remove("hidden");
@@ -8,7 +24,7 @@ const inicio = new Date("2025-11-08T17:00:00");
 
 function atualizarTempo() {
   const agora = new Date();
-  let diff = agora - inicio;
+  const diff = agora - inicio;
 
   document.getElementById("segundos").innerText = Math.floor(diff / 1000) % 60;
   document.getElementById("minutos").innerText = Math.floor(diff / 60000) % 60;
@@ -41,11 +57,13 @@ let i = 0;
 setInterval(() => {
   const el = document.getElementById("lyric");
   el.style.opacity = 0;
+
   setTimeout(() => {
     el.innerText = lyrics[i];
     el.style.opacity = 1;
     i = (i + 1) % lyrics.length;
   }, 1000);
+
 }, 5000);
 
 /* FINAL */
