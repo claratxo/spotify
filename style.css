@@ -60,6 +60,7 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,.6);
 }
 
+/* LETRA */
 .lyric {
   text-align: center;
   margin: 20px 0;
@@ -90,7 +91,7 @@ body {
   background: #1db954;
 }
 
-/* TEMPO */
+/* CONTADOR */
 .time-card {
   background: #121212;
   margin: 40px auto;
