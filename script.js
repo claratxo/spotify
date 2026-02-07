@@ -1,3 +1,11 @@
+// Garante que a tela final esteja escondida ao carregar
+document.addEventListener("DOMContentLoaded", () => {
+  const finalScreen = document.getElementById("final-screen");
+  if (finalScreen) {
+    finalScreen.classList.add("hidden");
+  }
+});
+
 function entrar() {
   const intro = document.getElementById("intro");
   const spotify = document.getElementById("spotify");
@@ -8,7 +16,7 @@ function entrar() {
 }
 
 /* CONTADOR */
-const inicio = new Date("2025-11-08T17:00:00"); // Mantido como 2025, mas com verificação para não mostrar negativos
+const inicio = new Date("2025-11-08T17:00:00"); // Mantido como 2025
 
 function atualizarTempo() {
   const agora = new Date();
