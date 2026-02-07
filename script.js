@@ -6,6 +6,23 @@ function entrar() {
 /* TEMPO JUNTOS */
 const inicio = new Date("2025-11-08T17:00:00");
 
+// Função para calcular diferença precisa de anos, meses e dias
+function getTimeDifference(start, end) {
+  let years = end.getFullYear() - start.getFullYear();
+  let months = end.getMonth() - start.getMonth();
+  let days = end.getDate() - start.getDate();
+
+  if (days < 0) {
+    months--;
+    days += new Date(end.getFullYear(), end.getMonth(), 0).getDate(); // Dias do mês anterior
+  }
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+  return { years, months, days };
+}
+
 // Declare as variáveis dos elementos antes de usar na função
 const anosEl = document.getElementById("anos");
 const mesesEl = document.getElementById("meses");
@@ -29,17 +46,17 @@ function atualizarTempo() {
     return;
   }
 
-  // Cálculo mais preciso
-  const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-  const meses = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-  const dias = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+  // Diferença precisa para anos, meses e dias
+  const { years, months, days } = getTimeDifference(inicio, agora);
+
+  // Horas, minutos, segundos usando diff
   const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
-  if (anosEl) anosEl.innerText = anos;
-  if (mesesEl) mesesEl.innerText = meses;
-  if (diasEl) diasEl.innerText = dias;
+  if (anosEl) anosEl.innerText = years;
+  if (mesesEl) mesesEl.innerText = months;
+  if (diasEl) diasEl.innerText = days;
   if (horasEl) horasEl.innerText = horas;
   if (minutosEl) minutosEl.innerText = minutos;
   if (segundosEl) segundosEl.innerText = segundos;
