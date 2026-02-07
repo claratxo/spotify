@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* ENTRAR NO APP */
+/* ENTRAR */
 function entrar() {
   document.getElementById("intro").style.display = "none";
   document.getElementById("spotify").classList.remove("hidden");
