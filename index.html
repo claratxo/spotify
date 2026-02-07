@@ -10,7 +10,11 @@
 
 <!-- INTRO -->
 <div id="intro" class="intro">
-  <button id="start-btn" class="play-btn" type="button">Clique aqui</button>
+  <div class="wrapped">
+    <h1>2025</h1>
+    <p>Meu Spotify Wrapped foi você ❤</p>
+    <button class="play-btn" onclick="entrar()">▶</button>
+  </div>
 </div>
 
 <!-- APP -->
@@ -19,7 +23,7 @@
   <div class="player-card">
     <h3 class="amor-texto">Você é o amor da minha vida ❤</h3>
 
-    <img src="foto.jpeg" alt="Capa" class="cover">
+    <img src="foto.jpeg" class="cover" alt="Foto do amor">
 
     <div class="music-info">
       <small>Para o meu grande amor</small>
@@ -27,12 +31,14 @@
       <p>The 1975</p>
     </div>
 
+    <!-- FRASE DA MÚSICA -->
     <p id="lyric" class="lyric"></p>
 
+    <!-- BARRA FAKE -->
     <div class="progress">
       <span>0:00</span>
       <div class="bar">
-        <div id="fill" class="fill"></div>
+        <div class="fill" id="fill"></div>
       </div>
       <span>5:26</span>
     </div>
@@ -46,28 +52,32 @@
     </iframe>
   </div>
 
+  <!-- TEMPO -->
   <div class="time-card">
     <p class="since">Juntos desde:</p>
     <div class="grid">
-      <div><span id="anos">0</span><small>Anos</small></div>
-      <div><span id="meses">0</span><small>Meses</small></div>
-      <div><span id="dias">0</span><small>Dias</small></div>
-      <div><span id="horas">0</span><small>Horas</small></div>
-      <div><span id="minutos">0</span><small>Minutos</small></div>
-      <div><span id="segundos">0</span><small>Segundos</small></div>
+      <div><span id="anos"></span><small>Anos</small></div>
+      <div><span id="meses"></span><small>Meses</small></div>
+      <div><span id="dias"></span><small>Dias</small></div>
+      <div><span id="horas"></span><small>Horas</small></div>
+      <div><span id="minutos"></span><small>Minutos</small></div>
+      <div><span id="segundos"></span><small>Segundos</small></div>
     </div>
   </div>
 
+  <!-- FINAL -->
   <div class="final">
-    <button id="final-btn" type="button">Ver o que vem depois ▶</button>
+    <button onclick="mostrarFinal()">Ver o que vem depois ▶</button>
   </div>
 
 </div>
 
-<!-- TELA FINAL (COMEÇA ESCONDIDA!) -->
+<!-- TELA FINAL -->
 <div id="final-screen" class="final-screen hidden">
   <p>Se eu tivesse que escolher de novo,<br>ainda seria você.</p>
 </div>
+
+<button class="floating-play" onclick="replay()">▶</button>
 
 <script src="script.js"></script>
 </body>
