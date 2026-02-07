@@ -1,97 +1,84 @@
-// Garante que a tela final esteja escondida ao carregar
-document.addEventListener("DOMContentLoaded", () => {
-  const finalScreen = document.getElementById("final-screen");
-  if (finalScreen) {
-    finalScreen.classList.add("hidden");
-  }
-});
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Você é o amor da minha vida ❤</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function entrar() {
-  const intro = document.getElementById("intro");
-  const spotify = document.getElementById("spotify");
-  if (intro && spotify) {
-    intro.style.display = "none";
-    spotify.classList.remove("hidden");
-  }
-}
+<!-- INTRO -->
+<div id="intro" class="intro">
+  <div class="wrapped">
+    <h1>2025</h1>
+    <p>Meu Spotify Wrapped foi você ❤</p>
+    <button class="play-btn" onclick="entrar()">▶</button>
+  </div>
+</div>
 
-/* CONTADOR */
-const inicio = new Date("2025-11-08T17:00:00");
+<!-- APP -->
+<div id="spotify" class="spotify hidden">
 
-function atualizarTempo() {
-  const agora = new Date();
-  let diff = agora - inicio;
+  <div class="player-card">
+    <h3 class="amor-texto">Você é o amor da minha vida ❤</h3>
 
-  if (diff < 0) {
-    document.getElementById("anos").innerText = 0;
-    document.getElementById("meses").innerText = 0;
-    document.getElementById("dias").innerText = 0;
-    document.getElementById("horas").innerText = 0;
-    document.getElementById("minutos").innerText = 0;
-    document.getElementById("segundos").innerText = 0;
-    return;
-  }
+    <img src="foto.jpeg" class="cover" alt="Foto do amor">
 
-  const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-  const meses = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-  const dias = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+    <div class="music-info">
+      <small>Para o meu grande amor</small>
+      <h2>About You</h2>
+      <p>The 1975</p>
+    </div>
 
-  document.getElementById("anos").innerText = anos;
-  document.getElementById("meses").innerText = meses;
-  document.getElementById("dias").innerText = dias;
-  document.getElementById("horas").innerText = horas;
-  document.getElementById("minutos").innerText = minutos;
-  document.getElementById("segundos").innerText = segundos;
-}
+    <!-- FRASE DA MÚSICA -->
+    <p id="lyric" class="lyric"></p>
 
-setInterval(atualizarTempo, 1000);
-atualizarTempo();
+    <!-- BARRA FAKE -->
+    <div class="progress">
+      <span>0:00</span>
+      <div class="bar">
+        <div class="fill" id="fill"></div>
+      </div>
+      <span>5:26</span>
+    </div>
 
-/* BARRA FAKE */
-let progress = 0;
-const progressInterval = setInterval(() => {
-  progress += 0.3;
-  if (progress >= 100) {
-    progress = 100;
-    clearInterval(progressInterval);
-  }
-  const fill = document.getElementById("fill");
-  if (fill) fill.style.width = progress + "%";
-}, 1000);
+    <iframe
+      src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9"
+      width="100%"
+      height="80"
+      frameborder="0"
+      allow="autoplay; encrypted-media">
+    </iframe>
+  </div>
 
-/* LETRAS */
-const lyrics = [
-  "There was something about you",
-  "I miss you, I'm sorry",
-  "Do you think I have forgotten?",
-  "Something about you"
-];
+  <!-- TEMPO -->
+  <div class="time-card">
+    <p class="since">Juntos desde:</p>
+    <div class="grid">
+      <div><span id="anos"></span><small>Anos</small></div>
+      <div><span id="meses"></span><small>Meses</small></div>
+      <div><span id="dias"></span><small>Dias</small></div>
+      <div><span id="horas"></span><small>Horas</small></div>
+      <div><span id="minutos"></span><small>Minutos</small></div>
+      <div><span id="segundos"></span><small>Segundos</small></div>
+    </div>
+  </div>
 
-let i = 0;
-setInterval(() => {
-  const el = document.getElementById("lyric");
-  if (el) {
-    el.style.opacity = 0;
-    setTimeout(() => {
-      el.innerText = lyrics[i];
-      el.style.opacity = 1;
-      i = (i + 1) % lyrics.length;
-    }, 1000);
-  }
-}, 5000);
+  <!-- FINAL -->
+  <div class="final">
+    <button onclick="mostrarFinal()">Ver o que vem depois ▶</button>
+  </div>
 
-/* FINAL */
-function mostrarFinal() {
-  const finalScreen = document.getElementById("final-screen");
-  if (finalScreen) {
-    finalScreen.classList.remove("hidden");
-  }
-}
+</div>
 
-/* REPLAY (botão flutuante) */
-function replay() {
-  location.reload();
-}
+<!-- TELA FINAL -->
+<div id="final-screen" class="final-screen hidden">
+  <p>Se eu tivesse que escolher de novo,<br>ainda seria você.</p>
+</div>
+
+<button class="floating-play" onclick="replay()">▶</button>
+
+<script src="script.js"></script>
+</body>
+</html>
